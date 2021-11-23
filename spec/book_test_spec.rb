@@ -2,7 +2,7 @@ require_relative '../book'
 
 describe Book do
   before(:each) do
-    @book1 = Book.new('publisher1', 'bad', 'drama', 'jobran khalil', 'red', '2014/10/23')
+    @book1 = Book.new('publisher1', 'bad', '2014/10/23')
   end
 
   it 'is an instance of the class?' do

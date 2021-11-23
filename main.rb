@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class Main
   def app
     puts 'Welcome to our App'
