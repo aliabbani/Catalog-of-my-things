@@ -3,7 +3,7 @@ require_relative 'item'
 class MusicAlbum < Item
   DEFAULT_BOOL = false
 
-  attr_accessor :publish_date
+  attr_accessor :genre, :publish_date
 
   def initialize(genre, author, label, publish_date, on_spotify = DEFAULT_BOOL)
     super(genre, author, label, publish_date)
