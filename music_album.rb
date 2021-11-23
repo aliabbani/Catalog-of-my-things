@@ -3,7 +3,7 @@ require_relative 'item'
 class MusicAlbum < Item
   DEFAULT_BOOL = false
 
-  attr_accessor :genre, :publish_date
+  attr_accessor :publish_date
 
   def initialize(genre, author, label, publish_date, on_spotify = DEFAULT_BOOL)
     super(genre, author, label, publish_date)
@@ -13,6 +13,6 @@ class MusicAlbum < Item
   private
 
   def can_be_archived?
-    Date.today > @publish_date.next_year(10) && @on_spotify
+    super && @on_spotify
   end
 end
