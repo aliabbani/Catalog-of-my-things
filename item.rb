@@ -10,7 +10,7 @@ class Item
     date_arr = date_arr.map(&:to_i)
     @publish_date = Date.new(date_arr.first, date_arr[1], date_arr.last)
     @archived = false
-    @items
+    @items = []
   end
 
   def move_to_archive
