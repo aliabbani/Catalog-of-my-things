@@ -1,4 +1,4 @@
-require './item.rb'
+require './item'
 
 class Book < Item
     attr_reader :publisher, :cover_state
@@ -7,7 +7,7 @@ class Book < Item
         super(genre, author, label, publish_date)
         @publisher = publisher
         @cover_state = cover_state
-        archived = false
+        @archived = false
     end
 
     def can_be_archived?
