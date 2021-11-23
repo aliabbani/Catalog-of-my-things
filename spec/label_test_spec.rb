@@ -20,7 +20,7 @@ describe Label do
   end
 
   it 'Add method to' do
-    item1 = Item.new(Date.new(2010, 02, 23))
+    item1 = Item.new(Date.new(2010, 0o2, 23))
     @label1.add_item(item1)
     expect(@label1.items).to include(item1)
   end
