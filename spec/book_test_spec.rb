@@ -2,7 +2,7 @@ require_relative '../book'
 
 describe Book do
   before(:each) do
-    @book1 = Book.new('publisher1', 'bad', '2014/10/23')
+    @book1 = Book.new('publisher1', 'bad', '2010/10/23')
   end
 
   it 'is an instance of the class?' do
@@ -19,9 +19,5 @@ describe Book do
 
   it 'Check the cover_state of the book' do
     expect(@book1.cover_state).to eql 'bad'
-  end
-
-  it 'Check the can_be_archived? method of the Book class' do
-    expect(@book1.can_be_archived?).to be true
   end
 end
