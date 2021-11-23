@@ -1,7 +1,10 @@
+# frozen_string_literal: true
+
 require 'date'
 
 class Item
   attr_accessor :publish_date
+  attr_reader :id
 
   def initialize(genre, author, label, publish_date)
     @id = Random.rand(1..1000)
@@ -24,3 +27,5 @@ class Item
     Date.today > @publish_date.next_year(10)
   end
 end
+
+
