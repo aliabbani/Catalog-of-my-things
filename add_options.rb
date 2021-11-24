@@ -1,3 +1,5 @@
+require './book.rb'
+
 module AddOptions
   INPT_MSG = 'Enter your option number here --> '.freeze
   ENTR_MSG = "\nPress ENTER to continue".freeze
@@ -40,5 +42,17 @@ module AddOptions
     puts "\nAdd of music albums:"
     print ENTR_MSG
     gets
+  end
+
+  def add_book
+    print 'Publish Date: '
+    publish_date = gets.chomp
+    print 'Cover State: '
+    cover_state = gets.chomp
+    print 'Publish Date: '
+    publisher = gets.chomp
+    book = Book.new(publish_date, cover_state, publisher)
+    @books << book
+    puts 'Book added successfully'
   end
 end

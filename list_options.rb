@@ -41,4 +41,12 @@ module Options
     print ENTR_MSG
     gets
   end
+
+  def list_books
+    @books.each { |book| puts "publisher: #{book.publisher}, Cover State: #{book.cover_state}, Publish Date: #{book.publish_date}" }
+  end
+
+  def list_labels
+    @labels.each { |label| puts "Title: #{label.title}, Color: #{label.color}" }
+  end
 end

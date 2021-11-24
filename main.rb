@@ -1,4 +1,4 @@
-require_relative 'options'
+require_relative 'list_options'
 require_relative 'add_options'
 
 class App
@@ -8,7 +8,7 @@ class App
   INPT_MSG = 'Enter your option number here --> '.freeze
 
   def initialize
-    @books = ['G.G Marquez']
+    @books = []
     @music_albums = []
     @games = []
     @genres = []
