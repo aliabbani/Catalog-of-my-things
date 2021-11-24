@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 module Options
-  INPT_MSG = 'Enter your option number here --> '.freeze
-  ENTR_MSG = "\nPress ENTER to continue".freeze
+  INPT_MSG = 'Enter your option number here --> '
+  ENTR_MSG = "\nPress ENTER to continue"
 
   def initialize
     @list_item_option = 0
