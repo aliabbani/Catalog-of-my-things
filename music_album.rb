@@ -16,4 +16,3 @@ class MusicAlbum < Item
     super && @on_spotify
   end
 end
-

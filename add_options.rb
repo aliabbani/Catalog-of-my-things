@@ -1,7 +1,11 @@
+require_relative 'music_album_input_handler'
+
 module AddOptions
   INPT_MSG = 'Enter your option number here --> '.freeze
   INPT_HERE = 'Input here --> '.freeze
   ENTR_MSG = "\nPress ENTER to continue".freeze
+
+  include MusicAlbumInputHandler
 
   def initialize
     @add_item_option = 0
@@ -38,33 +42,16 @@ module AddOptions
   end
 
   def add_music_album
-    puts "\nWhat is the name of the album?"
-    print INPT_HERE
-    name = gets.chomp
-    puts "When was the album published? [YYYY-MM-DD]"
-    print INPT_HERE
-    date = Date.parse(gets.chomp)
-    puts "\nSelect a genre or add one"
-    @genres.each_with_index { |genre, index| puts "#{index}) Genre: #{genre.name}" }
-    puts "#{@genres.length}) Add new genre"
-    print INPT_MSG
-    option = gets.chomp.to_i
-    if option == @genres.length
-      genre = add_genre
-    else
-      genre = @genres[option]
-    end
-    puts 'Is the album in Spotify? [Y/N]'
-    print INPT_HERE
-    if gets.chomp.upcase == 'Y'
-      new_album = MusicAlbum.new(date, true)
-      genre.add_item(new_album)
-      @music_albums << new_album
-    else
-      new_album = MusicAlbum.new(date)
-      genre.add_item(new_album)
-      @music_albums << new_album
-    end
+    name = music_album_name
+    date = music_album_publish_date
+    genre = music_album_genre_option
+    new_album = if music_album_on_spotify
+                  MusicAlbum.new(date, true)
+                else
+                  MusicAlbum.new(date)
+                end
+    genre.add_item(new_album)
+    @music_albums << new_album
   end
 
   def add_genre
