@@ -9,10 +9,11 @@ class App
   INPT_MSG = 'Enter your option number here --> '.freeze
 
   def initialize
-    @books = ['G.G Marquez']
+    @books = []
     @music_albums = []
     @games = []
     @genres = []
+    @labels = [Label.new('title1', 'yellow'), Label.new('title2', 'red'), Label.new('title3', 'green')]
     @labels = []
     @authors = [Author.new('Amine', 'Smahi'), Author.new('Ruben', 'Pire'), Author.new('Ali', 'Abbani')]
     @option = 0
