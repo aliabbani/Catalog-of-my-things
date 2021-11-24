@@ -1,6 +1,3 @@
-
-# frozen_string_literal: true
-
 require_relative 'list_options'
 require_relative 'add_options'
 require_relative 'author'
@@ -9,7 +6,7 @@ class App
   include ListOptions
   include AddOptions
 
-  INPT_MSG = 'Enter your option number here --> '
+  INPT_MSG = 'Enter your option number here --> '.freeze
 
   def initialize
     @books = []

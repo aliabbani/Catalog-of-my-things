@@ -1,13 +1,11 @@
-# frozen_string_literal: true
-
 require './book'
 require './label'
 require 'date'
 require './game'
 
 module AddOptions
-  INPT_MSG = 'Enter your option number here --> '
-  ENTR_MSG = "\nPress ENTER to continue"
+  INPT_MSG = 'Enter your option number here --> '.freeze
+  ENTR_MSG = "\nPress ENTER to continue".freeze
 
   def initialize
     @add_item_option = 0
@@ -49,7 +47,6 @@ module AddOptions
     gets
   end
 
-
   def add_book
     print 'Publisher: '
     publisher = gets.chomp
@@ -60,6 +57,7 @@ module AddOptions
     book = Book.new(publisher, cover_state, publish_date)
     @books << book
     puts 'Book added successfully'
+  end
 
   def add_game
     puts 'Please enter the publish date of the game:'
@@ -89,5 +87,4 @@ module AddOptions
       date
     end
   end
-end
 end

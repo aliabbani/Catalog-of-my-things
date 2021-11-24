@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 module ListOptions
   INPT_MSG = 'Enter your option number here --> '.freeze
   ENTR_MSG = "\nPress ENTER to continue".freeze
@@ -94,5 +92,4 @@ module ListOptions
       end
     end
   end
-
 end
