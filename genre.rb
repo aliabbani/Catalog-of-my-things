@@ -1,9 +1,10 @@
 require_relative 'music_album'
 
 class Genre
-  attr_reader :name
+  attr_reader :name, :items
 
   def initialize(name)
+    @id = Random.rand(1..1000)
     @name = name
     @items = []
   end
