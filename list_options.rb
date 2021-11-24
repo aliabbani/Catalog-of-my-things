@@ -53,7 +53,7 @@ module ListOptions
     if @genres.empty?
       puts 'EMPTY'
     else
-      puts @genres.map { |genre| "Genre: #{genre.name}" }
+      puts(@genres.map { |genre| "Genre: #{genre.name}" })
     end
     display_enter_msg
   end
