@@ -67,7 +67,16 @@ class App
     end
   end
 
-  def exit_app
+  def get_book
+    File.open('books.json', 'w') { |file| file.write JSON.generate [] } unless File.exist?
+    'books.json'
+
+    JSON.parse(File.read('books.json')) map do book
+      @books << Book.new(book.publisher, book.cover_state, book.publish_date)
+    end
+  end
+
+  def exit_app0
     puts "\nExiting session\nThank you for using the Catalog of my Things App!"
   end
 end
