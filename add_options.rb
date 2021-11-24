@@ -65,12 +65,12 @@ module AddOptions
     day = gets.chomp.to_i
     begin
       date = Date.new(year, month, day)
-    rescue 
+    rescue StandardError
       puts "Be sure that you entered the correct date format\n
       Please repeat again:"
       enter_date
     else
-      return date
-    end 
+      date
+    end
   end
 end
