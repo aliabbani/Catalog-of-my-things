@@ -12,7 +12,7 @@ class App
     @music_albums = []
     @games = []
     @genres = []
-    @labels = []
+    @labels = [Label.new('title1', 'yellow'), Label.new('title2', 'red'), Label.new('title3', 'green')]
     @authors = []
     @option = 0
   end

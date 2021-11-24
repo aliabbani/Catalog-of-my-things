@@ -1,4 +1,5 @@
 require './book'
+require './label'
 
 module AddOptions
   INPT_MSG = 'Enter your option number here --> '.freeze
@@ -29,7 +30,7 @@ module AddOptions
   end
 
   def add_item
-    until [1, 2, 3].include?(@add_item_option)
+    until [1, 2, 3, 4].include?(@add_item_option)
       add_item_options
       print INPT_MSG
       @add_item_option = gets.chomp.to_i
