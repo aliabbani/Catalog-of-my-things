@@ -14,7 +14,7 @@ class App
     @games = []
     @genres = []
     @labels = []
-    @authors = [Author.new("Amine", "Smahi"), Author.new("Ruben", "Pire"), Author.new("Ali", "Abbani")]
+    @authors = [Author.new('Amine', 'Smahi'), Author.new('Ruben', 'Pire'), Author.new('Ali', 'Abbani')]
     @option = 0
   end
 
@@ -58,7 +58,9 @@ class App
   end
 
   def list_authors
-    @authors.each {|author| puts "Id: #{author.id} | First name: #{author.first_name}| Last name: #{author.last_name}"}
+    @authors.each do |author|
+      puts "Id: #{author.id} | First name: #{author.first_name}| Last name: #{author.last_name}"
+    end
   end
 
   def exit_app

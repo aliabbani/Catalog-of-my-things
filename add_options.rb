@@ -1,5 +1,5 @@
 require 'date'
-require './game.rb'
+require './game'
 
 module AddOptions
   INPT_MSG = 'Enter your option number here --> '.freeze
@@ -46,25 +46,31 @@ module AddOptions
   end
 
   def add_game
-    puts "Pleae enter the publish date of the game:"
-    date = enter_date
-    publish_date = Date.new(date[0], date[1], date[2])
-    puts "Is it multi_player:"
+    puts 'Pleae enter the publish date of the game:'
+    publish_date = enter_date
+    puts 'Is it multi_player:'
     multi_player = gets.chomp
-    puts "the date of the last player"
-    date = enter_date
-    last_player_at = Date.new(date[0], date[1], date[2])
+    puts 'The date of the last player:'
+    last_player_at = enter_date
     @games << Game.new(publish_date, multi_player, last_player_at)
-    puts "Game is added succussfully"
+    puts 'Game is added succussfully'
   end
 
   def enter_date
-    puts "Year: "
-    year = gets.chomp
-    puts "Month: "
-    month = gets.chomp
-    puts "Day: "
-    day = gets.chomp
-    [year.to_i, month.to_i, day.to_i]
+    puts 'Year (yyyy): '
+    year = gets.chomp.to_i
+    puts 'Month (1-12): '
+    month = gets.chomp.to_i
+    puts 'Day (1-31): '
+    day = gets.chomp.to_i
+    begin
+      date = Date.new(year, month, day)
+    rescue 
+      puts "Be sure that you entered the correct date format\n
+      Please repeat again:"
+      enter_date
+    else
+      return date
+    end 
   end
 end
