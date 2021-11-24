@@ -73,7 +73,7 @@ module AddOptions
     print 'Cover State: '
     cover_state = gets.chomp
     print 'Please enter a publish Date (format YYYY/MM/DD): '
-    publish_date = gets.chomp
+    publish_date = enter_date
     book = Book.new(publisher, cover_state, publish_date)
     @books << book
     puts 'Book added successfully'
