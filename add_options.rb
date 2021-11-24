@@ -1,4 +1,6 @@
 require_relative 'music_album_input_handler'
+require './book'
+require './label'
 require 'date'
 require './game'
 
@@ -34,7 +36,7 @@ module AddOptions
   end
 
   def add_item
-    until [1, 2, 3].include?(@add_item_option)
+    until [1, 2, 3, 4].include?(@add_item_option)
       add_item_options
       print INPT_MSG
       @add_item_option = gets.chomp.to_i
@@ -63,6 +65,18 @@ module AddOptions
     genre = Genre.new(gets.chomp)
     @genres << genre
     genre
+  end
+
+  def add_book
+    print 'Publisher: '
+    publisher = gets.chomp
+    print 'Cover State: '
+    cover_state = gets.chomp
+    print 'Please enter a publish Date (format YYYY/MM/DD): '
+    publish_date = gets.chomp
+    book = Book.new(publisher, cover_state, publish_date)
+    @books << book
+    puts 'Book added successfully'
   end
 
   def add_game

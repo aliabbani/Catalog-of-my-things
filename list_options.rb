@@ -62,6 +62,26 @@ module ListOptions
     gets
   end
 
+  def list_books
+    puts "list all books: \n"
+    if @books.length.zero?
+      puts 'There is no books here, please go to option 5 and create a book'
+    else
+      @books.each do |book|
+        puts "publisher: #{book.publisher}, Cover State: #{book.cover_state}, Publish Date: #{book.publish_date}"
+      end
+    end
+  end
+
+  def list_labels
+    puts "list all labels: \n"
+    if @labels.length.zero?
+      puts 'There is no labels here...'
+    else
+      @labels.each { |label| puts "Id: #{label.id}, Title: #{label.title}, Color: #{label.color}" }
+    end
+  end
+
   def list_games
     if @games.empty?
       puts 'No games exist'
