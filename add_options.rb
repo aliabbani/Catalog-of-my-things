@@ -46,14 +46,14 @@ module AddOptions
   end
 
   def add_game
-    puts 'Pleae enter the publish date of the game:'
+    puts 'Please enter the publish date of the game:'
     publish_date = enter_date
-    puts 'Is it multi_player:'
+    puts "\nIs it multi_player:"
     multi_player = gets.chomp
-    puts 'The date of the last player:'
+    puts "\nThe date of the last player:"
     last_player_at = enter_date
     @games << Game.new(publish_date, multi_player, last_player_at)
-    puts 'Game is added succussfully'
+    puts 'Game is added successfully'
   end
 
   def enter_date
