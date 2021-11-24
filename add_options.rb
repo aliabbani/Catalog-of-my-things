@@ -49,7 +49,7 @@ module AddOptions
     publish_date = gets.chomp
     print 'Cover State: '
     cover_state = gets.chomp
-    print 'Publish Date: '
+    print 'Publisher: '
     publisher = gets.chomp
     book = Book.new(publish_date, cover_state, publisher)
     @books << book

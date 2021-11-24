@@ -43,12 +43,18 @@ module Options
   end
 
   def list_books
-    @books.each do |book|
-      puts "publisher: #{book.publisher}, Cover State: #{book.cover_state}, Publish Date: #{book.publish_date}"
+    puts "list all books: \n"
+    if @books.length.zero?
+      puts 'There is no books here, please go to option 5 and create a book'
+    else
+      @books.each do |book|
+        puts "publisher: #{book.publisher}, Cover State: #{book.cover_state}, Publish Date: #{book.publish_date}"
+      end
     end
   end
 
   def list_labels
+    puts "list all labels: \n"
     @labels.each { |label| puts "Title: #{label.title}, Color: #{label.color}" }
   end
 end
