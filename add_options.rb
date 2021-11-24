@@ -46,16 +46,17 @@ module AddOptions
     date = music_album_publish_date
     genre = music_album_genre_option
     new_album = if music_album_on_spotify
-                  MusicAlbum.new(date, true)
+                  MusicAlbum.new(name, date, true)
                 else
-                  MusicAlbum.new(date)
+                  MusicAlbum.new(name, date)
                 end
     genre.add_item(new_album)
     @music_albums << new_album
+    puts "\nAlbum added Successfully"
   end
 
   def add_genre
-    puts "Enter the album\'s genre"
+    puts "\nEnter the album\'s genre"
     print INPT_HERE
     genre = Genre.new(gets.chomp)
     @genres << genre

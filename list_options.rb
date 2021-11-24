@@ -43,7 +43,7 @@ module ListOptions
       puts 'EMPTY'
     else
       @music_albums.each.with_index(1) do |album, index|
-        puts "#{index}) Genre: #{album.genre}, Published on: #{album.publish_date}"
+        puts "#{index}) Album: #{album.name}, Genre: #{album.genre.name}, Published on: #{album.publish_date}"
       end
     end
   end
