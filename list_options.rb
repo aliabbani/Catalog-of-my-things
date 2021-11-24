@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-module Options
-  INPT_MSG = 'Enter your option number here --> '
-  ENTR_MSG = "\nPress ENTER to continue"
+module ListOptions
+  INPT_MSG = 'Enter your option number here --> '.freeze
+  ENTR_MSG = "\nPress ENTER to continue".freeze
 
   def initialize
     @list_item_option = 0
@@ -40,6 +40,27 @@ module Options
 
   def list_music_albums
     puts "\nList of music albums:"
+    if @music_albums.empty?
+      puts 'EMPTY'
+    else
+      @music_albums.each do |album|
+        puts "Genre: #{album.genre}, Author: #{album.author}, Published on: #{@album.publish_date}"
+      end
+    end
+    display_enter_msg
+  end
+
+  def list_genres
+    puts "\nList of genres:"
+    if @genres.empty?
+      puts 'EMPTY'
+    else
+      puts(@genres.map { |genre| "Genre: #{genre.name}" })
+    end
+    display_enter_msg
+  end
+
+  def display_enter_msg
     print ENTR_MSG
     gets
   end
@@ -63,4 +84,15 @@ module Options
       @labels.each { |label| puts "Id: #{label.id}, Title: #{label.title}, Color: #{label.color}" }
     end
   end
+
+  def list_games
+    if @games.empty?
+      puts 'No games exist'
+    else
+      @games.each do |game|
+        puts "Game Id: #{game.id} | Publish date: #{game.publish_date} | Last player was at: #{game.last_player_at}"
+      end
+    end
+  end
+
 end

@@ -2,6 +2,8 @@
 
 require './book'
 require './label'
+require 'date'
+require './game'
 
 module AddOptions
   INPT_MSG = 'Enter your option number here --> '
@@ -47,6 +49,7 @@ module AddOptions
     gets
   end
 
+
   def add_book
     print 'Publisher: '
     publisher = gets.chomp
@@ -57,5 +60,33 @@ module AddOptions
     book = Book.new(publisher, cover_state, publish_date)
     @books << book
     puts 'Book added successfully'
+
+  def add_game
+    puts 'Please enter the publish date of the game:'
+    publish_date = enter_date
+    puts "\nIs it multi_player:"
+    multi_player = gets.chomp
+    puts "\nThe date of the last player:"
+    last_player_at = enter_date
+    @games << Game.new(publish_date, multi_player, last_player_at)
+    puts 'Game is added successfully'
+  end
+
+  def enter_date
+    puts 'Year (yyyy): '
+    year = gets.chomp.to_i
+    puts 'Month (1-12): '
+    month = gets.chomp.to_i
+    puts 'Day (1-31): '
+    day = gets.chomp.to_i
+    begin
+      date = Date.new(year, month, day)
+    rescue StandardError
+      puts "Be sure that you entered the correct date format\n
+      Please repeat again:"
+      enter_date
+    else
+      date
+    end
   end
 end
