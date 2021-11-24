@@ -24,9 +24,10 @@ module MusicAlbumInputHandler
 
   def music_album_genre_option
     return add_genre if @genres.empty?
+
     puts "\nSelect the album's genre"
     list_genres
-    puts "#{@genres.length}) New genre"
+    puts "#{@genres.length + 1}) New genre"
     print INPT_HERE
     option = gets.chomp.to_i
     music_album_genre(option)
@@ -36,6 +37,7 @@ module MusicAlbumInputHandler
     puts "\nIs the album in Spotify? [Y/N]"
     print INPT_HERE
     return true if gets.chomp.upcase == 'Y'
+
     false
   end
 
@@ -49,7 +51,13 @@ module MusicAlbumInputHandler
   end
 
   def music_album_genre(option)
-    return add_genre if option == @genres.length
-    @genres[option]
+    if option.positive? && option <= @genres.length + 1
+      return add_genre if option == @genres.length + 1
+
+      @genres[option - 1]
+    else
+      puts "\nYou have entered an invalid input. Please try again"
+      music_album_genre_option
+    end
   end
 end
