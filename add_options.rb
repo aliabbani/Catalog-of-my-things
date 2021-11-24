@@ -50,9 +50,17 @@ module AddOptions
     publisher = gets.chomp
     print 'Cover State: '
     cover_state = gets.chomp
-    print 'Publish Date in this format yyyy/mm/d: '
-    publish_date = gets.chomp
-    book = Book.new(publisher, cover_state, publish_date)
+    def date_input
+      print 'Please enter a publish Date (format YYYY-MM-DD): '
+      publish_date = gets.chomp
+      if publish_date =~ /\d{4}-\d{1,2}-\d{1,2}$/
+        puts "You entered: #{publish_date}"
+      else
+        puts "#{publish_date} is not a valid date."
+        date_input
+      end
+    end
+    book = Book.new(publisher, cover_state, date_input)
     @books << book
     puts 'Book added successfully'
   end
