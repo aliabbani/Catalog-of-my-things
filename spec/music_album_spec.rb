@@ -11,12 +11,10 @@ describe MusicAlbum do
   end
 
   it 'allows a MusicAlbum instance to archive' do
-    @music_album_a.move_to_archive
-    expect(@music_album_a.archived?).to be true
+    expect(@music_album_a.send(:can_be_archived?)).to be true
   end
 
   it 'keeps a MusicAlbum instance to be archived' do
-    @music_album_b.move_to_archive
-    expect(@music_album_b.archived?).to be false
+    expect(@music_album_b.send(:can_be_archived?)).to be false
   end
 end
