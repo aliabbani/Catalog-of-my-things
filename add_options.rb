@@ -45,13 +45,13 @@ module AddOptions
   end
 
   def add_book
-    print 'Publish Date: '
-    publish_date = gets.chomp
-    print 'Cover State: '
-    cover_state = gets.chomp
     print 'Publisher: '
     publisher = gets.chomp
-    book = Book.new(publish_date, cover_state, publisher)
+    print 'Cover State: '
+    cover_state = gets.chomp
+    print 'Publish Date: '
+    publish_date = gets.chomp
+    book = Book.new(publisher, publish_date, cover_state)
     @books << book
     puts 'Book added successfully'
   end
