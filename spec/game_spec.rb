@@ -22,7 +22,7 @@ describe Game do
       expect(@second_game.send(:can_be_archived?)).to be true
     end
 
-    it "tests the private method directly" do
+    it 'tests the private method directly' do
       expect(@second_game.send(:can_be_archived?)).to be true
     end
   end
