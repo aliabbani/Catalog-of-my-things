@@ -2,6 +2,7 @@ require_relative 'list_options'
 require_relative 'add_options'
 require_relative 'music_album'
 require_relative 'genre'
+require_relative 'author'
 
 class App
   include ListOptions
@@ -15,7 +16,7 @@ class App
     @games = []
     @genres = []
     @labels = []
-    @authors = []
+    @authors = [Author.new('Amine', 'Smahi'), Author.new('Ruben', 'Pire'), Author.new('Ali', 'Abbani')]
     @option = 0
   end
 
@@ -56,6 +57,12 @@ class App
       print INPT_MSG
       @option = gets.chomp.to_i
       select_option
+    end
+  end
+
+  def list_authors
+    @authors.each do |author|
+      puts "Id: #{author.id} | First name: #{author.first_name}| Last name: #{author.last_name}"
     end
   end
 

@@ -61,4 +61,14 @@ module ListOptions
     print ENTR_MSG
     gets
   end
+
+  def list_games
+    if @games.empty?
+      puts 'No games exist'
+    else
+      @games.each do |game|
+        puts "Game Id: #{game.id} | Publish date: #{game.publish_date} | Last player was at: #{game.last_player_at}"
+      end
+    end
+  end
 end
