@@ -1,8 +1,8 @@
-require_relative 'options'
+require_relative 'list_options'
 require_relative 'add_options'
 
 class App
-  include Options
+  include ListOptions
   include AddOptions
 
   INPT_MSG = 'Enter your option number here --> '.freeze

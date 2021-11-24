@@ -1,4 +1,4 @@
-module Options
+module ListOptions
   INPT_MSG = 'Enter your option number here --> '.freeze
   ENTR_MSG = "\nPress ENTER to continue".freeze
 
@@ -38,6 +38,27 @@ module Options
 
   def list_music_albums
     puts "\nList of music albums:"
+    if @music_albums.empty?
+      puts 'EMPTY'
+    else
+      @music_albums.each do |album|
+        puts "Genre: #{album.genre}, Author: #{album.author}, Published on: #{@album.publish_date}"
+      end
+    end
+    display_enter_msg
+  end
+
+  def list_genres
+    puts "\nList of genres:"
+    if @genres.empty?
+      puts 'EMPTY'
+    else
+      puts(@genres.map { |genre| "Genre: #{genre.name}" })
+    end
+    display_enter_msg
+  end
+
+  def display_enter_msg
     print ENTR_MSG
     gets
   end
