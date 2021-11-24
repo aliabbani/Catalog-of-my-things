@@ -43,7 +43,9 @@ module Options
   end
 
   def list_books
-    @books.each { |book| puts "publisher: #{book.publisher}, Cover State: #{book.cover_state}, Publish Date: #{book.publish_date}" }
+    @books.each do |book|
+      puts "publisher: #{book.publisher}, Cover State: #{book.cover_state}, Publish Date: #{book.publish_date}"
+    end
   end
 
   def list_labels

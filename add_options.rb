@@ -1,4 +1,4 @@
-require './book.rb'
+require './book'
 
 module AddOptions
   INPT_MSG = 'Enter your option number here --> '.freeze
