@@ -1,5 +1,7 @@
 require_relative 'list_options'
 require_relative 'add_options'
+require_relative 'music_album'
+require_relative 'genre'
 
 class App
   include ListOptions
@@ -33,6 +35,7 @@ class App
       list_items
     when 2
       list_genres
+      display_enter_msg
     when 3
       list_labels
     when 4

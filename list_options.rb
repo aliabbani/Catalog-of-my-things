@@ -19,6 +19,7 @@ module ListOptions
       list_books
     when 2
       list_music_albums
+      display_enter_msg
     when 3
       list_games
     else
@@ -41,11 +42,10 @@ module ListOptions
     if @music_albums.empty?
       puts 'EMPTY'
     else
-      @music_albums.each do |album|
-        puts "Genre: #{album.genre}, Author: #{album.author}, Published on: #{@album.publish_date}"
+      @music_albums.each.with_index(1) do |album, index|
+        puts "#{index}) Genre: #{album.genre}, Published on: #{album.publish_date}"
       end
     end
-    display_enter_msg
   end
 
   def list_genres
@@ -53,9 +53,8 @@ module ListOptions
     if @genres.empty?
       puts 'EMPTY'
     else
-      puts(@genres.map { |genre| "Genre: #{genre.name}" })
+      @genres.each.with_index(1) { |genre, index| puts "#{index}) Genre: #{genre.name}" }
     end
-    display_enter_msg
   end
 
   def display_enter_msg
