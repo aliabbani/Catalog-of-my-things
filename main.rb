@@ -1,11 +1,14 @@
 require_relative 'list_options'
 require_relative 'add_options'
 require_relative 'author'
+require 'json'
+require_relative 'game'
+require_relative 'storage'
 
 class App
   include ListOptions
   include AddOptions
-
+  include Storage
   INPT_MSG = 'Enter your option number here --> '.freeze
 
   def initialize
@@ -49,6 +52,7 @@ class App
   end
 
   def main
+    get_games
     until @option == 6
       display_options
       print INPT_MSG
@@ -64,6 +68,7 @@ class App
   end
 
   def exit_app
+    save_games
     puts "\nExiting session\nThank you for using the Catalog of my Things App!"
   end
 end
