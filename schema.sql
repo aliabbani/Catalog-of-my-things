@@ -1,4 +1,24 @@
 -- Database schema to keep the structure of the entire database
+CREATE TABLE games (
+  id SERIAL PRIMARY KEY,
+  publis_date DATE,
+  multi_player TEXT,
+  last_player_at DATE,
+  author_id INT,
+  label_id INT,
+  genre_id INT,
+  archived BOOLEAN,
+  CONSTRAINT fk_authors FOREIGN KEY(author_id) REFERENCES authors(id) ON DELETE CASCADE,
+  CONSTRAINT fk_genres FOREIGN KEY(genre_id) REFERENCES genres(id) ON DELETE CASCADE,
+  CONSTRAINT fk_labels FOREIGN KEY(label_id) REFERENCES labels(id) ON DELETE CASCADE
+);
+
+CREATE TABLE authors (
+  id SERIAL PRIMARY KEY,
+  first_name TEXT,
+  last_name TEXT
+);
+
 -- Creation of the music table
 CREATE TABLE music_albums (
   id INT GENERATED ALWAYS AS IDENTITY,
