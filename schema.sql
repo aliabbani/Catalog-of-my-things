@@ -46,15 +46,6 @@ CREATE TABLE labels (
   PRIMARY KEY (id)
 );
 
--- Creation of the Authors table
-
-CREATE TABLE authors (
-  id INT GENERATED ALWAYS AS IDENTITY,
-  first_name VARCHAR(30),
-  last_name VARCHAR(30),
-  PRIMARY KEY (id)
-);
-
 /* Creation of the 1:M associations between music_albums, genres,
 labels, and authors tables */
 
