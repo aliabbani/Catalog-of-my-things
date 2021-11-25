@@ -1,9 +1,15 @@
+require_relative 'music_album_input_handler'
+require './book'
+require './label'
 require 'date'
 require './game'
 
 module AddOptions
   INPT_MSG = 'Enter your option number here --> '.freeze
+  INPT_HERE = 'Input here --> '.freeze
   ENTR_MSG = "\nPress ENTER to continue".freeze
+
+  include MusicAlbumInputHandler
 
   def initialize
     @add_item_option = 0
@@ -30,7 +36,7 @@ module AddOptions
   end
 
   def add_item
-    until [1, 2, 3].include?(@add_item_option)
+    until [1, 2, 3, 4].include?(@add_item_option)
       add_item_options
       print INPT_MSG
       @add_item_option = gets.chomp.to_i
@@ -40,9 +46,37 @@ module AddOptions
   end
 
   def add_music_album
-    puts "\nAdd of music albums:"
-    print ENTR_MSG
-    gets
+    name = music_album_name
+    date = music_album_publish_date
+    genre = music_album_genre_option
+    new_album = if music_album_on_spotify
+                  MusicAlbum.new(name, date, true)
+                else
+                  MusicAlbum.new(name, date)
+                end
+    genre.add_item(new_album)
+    @music_albums << new_album
+    puts "\nAlbum added Successfully"
+  end
+
+  def add_genre
+    puts "\nEnter the album\'s genre"
+    print INPT_HERE
+    genre = Genre.new(gets.chomp)
+    @genres << genre
+    genre
+  end
+
+  def add_book
+    print 'Publisher: '
+    publisher = gets.chomp
+    print 'Cover State: '
+    cover_state = gets.chomp
+    print 'Please enter a publish Date (format YYYY/MM/DD): '
+    publish_date = enter_date
+    book = Book.new(publisher, cover_state, publish_date)
+    @books << book
+    puts 'Book added successfully'
   end
 
   def add_game

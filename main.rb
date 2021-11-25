@@ -1,24 +1,31 @@
 require_relative 'list_options'
 require_relative 'add_options'
+require_relative 'music_album'
+require_relative 'genre'
 require_relative 'author'
+require_relative 'music_album_storage'
+require_relative 'book'
 require 'json'
-require_relative 'game'
-require_relative 'storage'
+
 
 class App
   include ListOptions
   include AddOptions
   include Storage
+  include MusicAlbumStorage
+
   INPT_MSG = 'Enter your option number here --> '.freeze
 
   def initialize
-    @books = ['G.G Marquez']
+    @books = []
     @music_albums = []
     @games = []
     @genres = []
+    @labels = [Label.new('title1', 'yellow'), Label.new('title2', 'red'), Label.new('title3', 'green')]
     @labels = []
     @authors = [Author.new('Amine', 'Smahi'), Author.new('Ruben', 'Pire'), Author.new('Ali', 'Abbani')]
     @option = 0
+    load_json
   end
 
   def display_options
@@ -37,6 +44,7 @@ class App
       list_items
     when 2
       list_genres
+      display_enter_msg
     when 3
       list_labels
     when 4
@@ -53,6 +61,7 @@ class App
 
   def main
     get_games
+    parse_books
     until @option == 6
       display_options
       print INPT_MSG
@@ -67,9 +76,28 @@ class App
     end
   end
 
+  def parse_books
+    File.open('books.json', 'w') { |f| f.write JSON.generate([]) } unless File.exist? 'books.json'
+
+    JSON.parse(File.read('books.json')).map do |book|
+      @books << Book.new(book['publisher'], book['cover_state'], book['publish_date'])
+    end
+  end
+
+  def save_books
+    @json_books = []
+    @books.each do |book|
+      @json_books.push({ 'publisher' => book.publisher, 'cover_state' => book.cover_state,
+                         'publish_date' => book.publish_date })
+    end
+    File.write('books.json', JSON.generate(@json_books))
+  end
+
   def exit_app
     save_games
+    save_books
     puts "\nExiting session\nThank you for using the Catalog of my Things App!"
+    save_items
   end
 end
 
