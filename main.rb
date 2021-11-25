@@ -5,11 +5,13 @@ require_relative 'genre'
 require_relative 'author'
 require_relative 'music_album_storage'
 require_relative 'book'
+require_relative 'storage'
 require 'json'
 
 class App
   include ListOptions
   include AddOptions
+  include Storage
   include MusicAlbumStorage
 
   INPT_MSG = 'Enter your option number here --> '.freeze
@@ -58,6 +60,7 @@ class App
   end
 
   def main
+    parse_games
     parse_books
     until @option == 6
       display_options
@@ -91,6 +94,7 @@ class App
   end
 
   def exit_app
+    save_games
     save_books
     puts "\nExiting session\nThank you for using the Catalog of my Things App!"
     save_items
