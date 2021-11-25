@@ -7,7 +7,11 @@ In this project, we create a console app that will help you to keep a record of 
 - Music albums, 
 - Games
 
+![image](https://user-images.githubusercontent.com/77190203/143459241-591ee8a7-671d-4bf4-b4bc-17880306d797.png)
+
 Everything will be based on the UML class diagram presented. The data will be stored in JSON files but we will also prepare a database with tables structure analogical to your program's class structure.
+
+![image](https://user-images.githubusercontent.com/77190203/143459388-c6eefe55-4dda-48c5-9c89-03dd95bbd99c.png)
 
 ## Built With
 
