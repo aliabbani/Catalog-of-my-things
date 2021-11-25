@@ -3,10 +3,12 @@ require_relative 'add_options'
 require_relative 'music_album'
 require_relative 'genre'
 require_relative 'author'
+require_relative 'storage'
 
 class App
   include ListOptions
   include AddOptions
+  include Storage
 
   INPT_MSG = 'Enter your option number here --> '.freeze
 
@@ -19,6 +21,7 @@ class App
     @labels = []
     @authors = [Author.new('Amine', 'Smahi'), Author.new('Ruben', 'Pire'), Author.new('Ali', 'Abbani')]
     @option = 0
+    load_json
   end
 
   def display_options
@@ -69,6 +72,7 @@ class App
 
   def exit_app
     puts "\nExiting session\nThank you for using the Catalog of my Things App!"
+    save_items
   end
 end
 
