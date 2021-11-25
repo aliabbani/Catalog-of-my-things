@@ -1,7 +1,7 @@
 require './game'
 
 module Storage
-  def get_games
+  def parse_games
     File.open('games.json', 'w') { |f| f.write JSON.generate([]) } unless File.exist? 'games.json'
 
     JSON.parse(File.read('games.json')).map do |game|

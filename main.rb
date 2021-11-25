@@ -5,8 +5,8 @@ require_relative 'genre'
 require_relative 'author'
 require_relative 'music_album_storage'
 require_relative 'book'
+require_relative 'storage'
 require 'json'
-
 
 class App
   include ListOptions
@@ -60,7 +60,7 @@ class App
   end
 
   def main
-    get_games
+    parse_games
     parse_books
     until @option == 6
       display_options
