@@ -6,7 +6,12 @@ CREATE TABLE games (
   multi_player TEXT,
   last_player_at DATE,
   author_id INT,
-  CONSTRAINT fk_authors FOREIGN KEY(author_id) REFERENCES authors(id) ON DELETE CASCADE
+  label_id INT,
+  genre_id INT,
+  archived BOOLEAN,
+  CONSTRAINT fk_authors FOREIGN KEY(author_id) REFERENCES authors(id) ON DELETE CASCADE,
+  CONSTRAINT fk_genres FOREIGN KEY(genre_id) REFERENCES genres(id) ON DELETE CASCADE,
+  CONSTRAINT fk_labels FOREIGN KEY(label_id) REFERENCES labels(id) ON DELETE CASCADE
 );
 
 CREATE TABLE authors (
