@@ -4,7 +4,8 @@
 
 CREATE TABLE music_albums (
   id INT GENERATED ALWAYS AS IDENTITY,
-  publis_date DATE,
+  publish_date DATE,
+  on_spotify BOOLEAN
   archived BOOLEAN,
   PRIMARY KEY (id)
 );
@@ -66,8 +67,12 @@ REFERENCES authors(id);
 CREATE TABLE Book (
   id INT GENERATED AS IDENTITY PRIMARY KEY ,
   publisher VARCHAR(50),
-  cover_state VARCHAR(50)
-  FOREIGN KEY (id) REFERENCES label(id)
-  FOREIGN KEY (id) REFERENCES Genre(id)
-  FOREIGN KEY (id) REFERENCES author(id)
+  cover_state VARCHAR(50),
+  archived BOOLEAN
+  label_id INT
+  genre_id INT
+  author_id INT
+  FOREIGN KEY (label_id) REFERENCES label(id)
+  FOREIGN KEY (genre_id) REFERENCES genre(id)
+  FOREIGN KEY (author_id) REFERENCES author(id)
 );
