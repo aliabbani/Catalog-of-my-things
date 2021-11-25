@@ -3,14 +3,14 @@ require_relative 'add_options'
 require_relative 'music_album'
 require_relative 'genre'
 require_relative 'author'
-require_relative 'storage'
+require_relative 'music_album_storage'
 require_relative 'book'
 require 'json'
 
 class App
   include ListOptions
   include AddOptions
-  include Storage
+  include MusicAlbumStorage
 
   INPT_MSG = 'Enter your option number here --> '.freeze
 

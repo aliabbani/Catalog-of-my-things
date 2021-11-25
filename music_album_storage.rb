@@ -1,6 +1,6 @@
 require 'json'
 
-module Storage
+module MusicAlbumStorage
   def load_albums
     json_albums = File.read('./local/music_album.json')
     albums_data = JSON.parse(json_albums)
