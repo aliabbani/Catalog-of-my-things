@@ -20,10 +20,9 @@ CREATE TABLE genres (
 -- Creation of the labels table
 
 CREATE TABLE labels (
-  id INT GENERATED ALWAYS AS IDENTITY,
+  id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY ,
   title VARCHAR(50),
   color VARCHAR(30),
-  PRIMARY KEY (id)
 );
 
 -- Creation of the Authors table
@@ -61,3 +60,14 @@ ADD author_id INT,
 ADD CONSTRAINT fk_authors
 FOREIGN KEY (author_id)
 REFERENCES authors(id);
+
+-- creation of the books table
+
+CREATE TABLE Book (
+  id INT GENERATED AS IDENTITY PRIMARY KEY ,
+  publisher VARCHAR(50),
+  cover_state VARCHAR(50)
+  FOREIGN KEY (id) REFERENCES label(id)
+  FOREIGN KEY (id) REFERENCES Genre(id)
+  FOREIGN KEY (id) REFERENCES author(id)
+);
