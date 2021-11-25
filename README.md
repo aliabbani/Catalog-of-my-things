@@ -1,20 +1,37 @@
-# Catalog-of-my-things
+![](https://img.shields.io/badge/Microverse-blueviolet)
+
+# Catalog of my Things
 
 In this project, we create a console app that will help you to keep a record of different types of things you won: 
-Books, 
-Music albums, 
-Movies 
+- Books 
+- Music albums, 
+- Games
+
 Everything will be based on the UML class diagram presented. The data will be stored in JSON files but we will also prepare a database with tables structure analogical to your program's class structure.
 
 ## Built With
 
 - Ruby
 - Postgres
+
 ## Getting Started
 
-- git@github.com:aliabbani/Catalog-of-my-things.git
+- Make sure you have `Ruby` installed in your system. You can install it [here](https://www.ruby-lang.org/en/documentation/installation/
+).
 
-- cd Catalog-of-my-things
+- Clone this repository by running `git clone https://github.com/aliabbani/Catalog-of-my-things.git` in your command line.
+
+- Navigate to the repository by running `cd Catalog-of-my-things`.
+
+- Start the project by running `ruby main.rb` on the command line.
+
+- Follow the program instructions to interact with the **Catalog of my Things App**.
+
+- Finally, run `code .` to see the files in your default code editor.
+
+## Optional
+
+- Run `bundle install` to install the `Ruby Gems` including `Rubocop`.
 
 ## Authors
 
